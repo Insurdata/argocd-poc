@@ -23,13 +23,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}   
 
-    - name: Build the Docker image
-      run: docker build . -t brayest23/argocd-poc:$(date +%s)
-
     - name: Build and push Docker image
       uses: docker/build-push-action@v3
       with:
+        context: .
         push: true
-        tags: brayest23/argocd-poc:$(date +%s)
+        tags: brayest23/argocd-poc:$GITHUB_JOB
 
 
