@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Insurdata/argocd-poc.git
     targetRevision: HEAD
+    path: dev
   destination:
     server: https://kubernetes.default.svc
 
