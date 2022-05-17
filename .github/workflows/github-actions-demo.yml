@@ -20,4 +20,6 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag brayest23/argocd-poc:$(date +%s)
+    - name: Push Image
+      run: docekr push brayest23/argocd-poc:$(date +%s)
 
