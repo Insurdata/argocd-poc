@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: website
-        image: brayest23/argocd-poc:testtest1
+        image: brayest23/argocd-poc:testtest2
         ports:
         - containerPort: 80
