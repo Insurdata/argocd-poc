@@ -23,18 +23,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}   
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v4
-      with:
-        images: brayest23/argocd-poc:${{ env.GITHUB_JOB }}
-
     - name: Build and push Docker image
       uses: docker/build-push-action@v3
       with:
-        context: .
+        
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+        tags: brayest23/argocd-poc:${{ env.GITHUB_JOB }}
 
 
