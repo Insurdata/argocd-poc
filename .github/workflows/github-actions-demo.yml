@@ -13,13 +13,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: docker/login-action@v2
+
+    - name: Check out the repo
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub    
+      uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}    
+        password: ${{ secrets.DOCKERHUB_TOKEN }}   
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag brayest23/argocd-poc:$(date +%s)
-    - name: Push Image
-      run: docker push brayest23/argocd-poc:$(date +%s)
+      run: docker build . -t brayest23/argocd-poc:$(date +%s)
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        tags: brayest23/argocd-poc:$(date +%s)
+
 
