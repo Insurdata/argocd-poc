@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: website
-        image: brayest23/argocd-poc:tagname
+        image: brayest23/argocd-poc:be32c8705fc8532109fc53100df89b28d8ea0286
         ports:
         - containerPort: 80
