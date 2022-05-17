@@ -28,6 +28,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: brayest23/argocd-poc:testtest2
+        tags: brayest23/argocd-poc:testtest3
 
 
