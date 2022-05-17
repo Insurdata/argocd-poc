@@ -28,6 +28,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: brayest23/argocd-poc:${{ env.GITHUB_JOB }}
+        tags: brayest23/argocd-poc:${{ GITHUB_JOB }}
 
 
