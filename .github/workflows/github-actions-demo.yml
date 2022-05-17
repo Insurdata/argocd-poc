@@ -27,7 +27,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v4
       with:
-        images: brayest23/argocd-poc   
+        images: brayest23/argocd-poc:${{ env.GITHUB_JOB }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v3
